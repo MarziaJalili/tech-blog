@@ -1,0 +1,20 @@
+@import "tailwindcss";
+body {
+  /* color: hsl(46, 16%, 21%); */
+}
+@theme {
+  --font-be-vietnam-pro: "Be Vietnam Pro", sans-serif;
+  /* ## Colors */
+
+  /* ### Primary */
+  --color-Bright-Red: hsl(12, 88%, 59%);
+  --color-Dark-Blue: hsl(228, 39%, 23%);
+  --color-Bright-Red-Sup-Light: hsl(12, 88%, 69%);
+
+  /* ### Neutral */
+  --color-Dark-Grayish-Blue: hsl(227, 12%, 61%);
+  --color-Very-Dark-Blue: hsl(233, 12%, 13%);
+  --color-Very-Pale-Red: hsl(13, 100%, 96%);
+  --color-Very-Light-Gray: hsl(0, 0%, 98%);
+  --color-heading: hsl(46, 16%, 21%);
+}
