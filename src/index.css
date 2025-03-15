@@ -81,6 +81,7 @@ h1 span {
 
 /* dark mood */
 body.dark {
+  transition: 2s;
   background-color: #0c192c;
   ::selection {
     background-color: #d6c7ff;
@@ -119,7 +120,7 @@ body.dark {
     transition: 0.5s;
     &:hover {
       background-color: #8f68ff;
-      color: rgb(246, 246, 246);
+      color: #f6f6f6;
     }
   }
 
@@ -135,5 +136,9 @@ body.dark {
 
   svg {
     fill: rgb(246, 246, 246);
+    transform: rotate(-360deg);
+    &:hover {
+      transform: rotate(360deg);
+    }
   }
 }

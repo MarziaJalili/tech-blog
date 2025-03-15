@@ -1,12 +1,15 @@
-import Logo from "../assets/images/logo.svg";
+import Logo from "./Logo";
 import ToggleButton from "./ToggleButton";
+import { useState } from "react";
 
 const Header = () => {
+  const [darkMood, setDarkMood] = useState(false);
+
   return (
     <header className="font-be-vietnam-pro">
       <nav className="z-100 relative container mx-auto  p-6 flex items-center justify-between">
         {/* logo image */}
-        <img src={Logo} alt="logo-image" />
+        <Logo darkMood={darkMood} />
 
         {/* menu items */}
         <ul className="hidden lg:flex space-x-6">
@@ -53,7 +56,7 @@ const Header = () => {
         </ul>
 
         {/* toggle button */}
-        <ToggleButton />
+        <ToggleButton darkMood={darkMood} setDarkMood={setDarkMood} />
 
         {/* button */}
         <button>
