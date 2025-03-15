@@ -1,9 +1,9 @@
 @import "tailwindcss";
-body {
-  /* color: hsl(46, 16%, 21%); */
-}
+
 @theme {
+  /* set font family */
   --font-be-vietnam-pro: "Be Vietnam Pro", sans-serif;
+
   /* ## Colors */
 
   /* ### Primary */
@@ -17,4 +17,63 @@ body {
   --color-Very-Pale-Red: hsl(13, 100%, 96%);
   --color-Very-Light-Gray: hsl(0, 0%, 98%);
   --color-heading: hsl(46, 16%, 21%);
+
+  /* set the animation */
+  --animate-move: move 10s linear infinite;
+}
+
+/* animate the bubbles */
+.bubbles span {
+  animation-duration: calc(120s / var(--i));
+  box-shadow: 0 0 0 1px var(--color-Bright-Red),
+    0 0 50px var(--color-Bright-Red-Sup-Light),
+    0 0 100px var(--color-Bright-Red-Sup-Light);
+
+  &:nth-child(even) {
+    box-shadow: 0 0 0 1px #fee685, 0 0 50px #fee685, 0 0 100px #fee685;
+  }
+}
+
+@keyframes move {
+  from {
+    transform: translateY(100vh) scale(0);
+  }
+  to {
+    transform: translateY(-10vh) scale(1);
+  }
+}
+
+/* change the highlighting color */
+::selection {
+  background-color: #ffecbc;
+  color: var(--color-heading);
+}
+
+::-moz-selection {
+  background-color: #ffecbc;
+  color: var(--color-heading);
+}
+
+/* create a  gradient background */
+h1 span {
+  color: transparent;
+  background: linear-gradient(
+    to right,
+    #d6c7ff,
+    #ab8bff,
+    #d6c7ff,
+    #ab8bff,
+    #d6c7ff
+  );
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animate-gradient 3s linear infinite;
+}
+
+@keyframes animate-gradient {
+  to {
+    background-position: 200%;
+  }
 }

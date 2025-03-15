@@ -3,7 +3,7 @@ import Logo from "../assets/images/logo.svg";
 const Header = () => {
   return (
     <header className="font-be-vietnam-pro">
-      <nav className="relative container mx-auto  p-6 flex items-center justify-between">
+      <nav className="z-100 relative container mx-auto  p-6 flex items-center justify-between">
         {/* logo image */}
         <img src={Logo} alt="logo-image" />
 
