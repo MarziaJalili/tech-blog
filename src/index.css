@@ -35,6 +35,10 @@
   }
 }
 
+.get-started-btn {
+  transition: all 0.3s ease-out;
+}
+
 @keyframes move {
   from {
     transform: translateY(100vh) scale(0);
@@ -117,7 +121,6 @@ body.dark {
   }
   .get-started-btn {
     background-color: #5e3fb8;
-    transition: 0.5s;
     &:hover {
       background-color: #8f68ff;
       color: #f6f6f6;
@@ -134,11 +137,27 @@ body.dark {
     }
   }
 
-  svg {
+  .mood svg {
     fill: rgb(246, 246, 246);
+  }
+}
+
+button.mood svg {
+  animation: rotation 1s ease 1 forwards;
+}
+
+@keyframes rotation {
+  to {
     transform: rotate(-360deg);
-    &:hover {
-      transform: rotate(360deg);
-    }
+  }
+}
+
+button.mood:hover svg {
+  animation: rotation-hover 1s ease 1 forwards;
+}
+
+@keyframes rotation-hover {
+  to {
+    transform: rotate(360deg);
   }
 }

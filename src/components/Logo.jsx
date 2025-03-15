@@ -8,7 +8,7 @@ const Logo = ({ darkMood }) => {
       width="146"
       height="24"
     >
-      <g fill="none" fill-rule="evenodd">
+      <g fill="none" fillRule="evenodd">
         <path
           fill={darkMood ? "#f6f6f6" : "#242D52"}
           fillRule="nonzero"
