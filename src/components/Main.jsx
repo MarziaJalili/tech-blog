@@ -1,15 +1,29 @@
 import Nature from "../assets/images/nature.jpg";
 import Life from "../assets/images/life.jpg";
 import Tech from "../assets/images/tech.jpg";
-const Main = () => {
-  const bubblesData = Array.from({ length: 80 }, (_, index) => index + 1);
 
+import { useEffect, useState } from "react";
+
+const Main = () => {
+  // modify the screen size
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setWindowWidth(window.innerWidth);
+    });
+  }, []);
+
+  // generate bubbles
+  const bubblesData = Array.from(
+    { length: windowWidth > 1000 ? 80 : 40 },
+    (_, index) => index + 1
+  );
   const bubbles = bubblesData.map((number) => {
     const randomNum = Math.floor(Math.random() * 21) + 10;
     const style = {
       "--i": randomNum,
     };
-    console.log(randomNum);
     return (
       <span
         style={style}
