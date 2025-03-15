@@ -24,6 +24,7 @@
 
 /* animate the bubbles */
 .bubbles span {
+  pointer-events: none;
   animation-duration: calc(120s / var(--i));
   box-shadow: 0 0 0 1px var(--color-Bright-Red),
     0 0 50px var(--color-Bright-Red-Sup-Light),
@@ -75,5 +76,64 @@ h1 span {
 @keyframes animate-gradient {
   to {
     background-position: 200%;
+  }
+}
+
+/* dark mood */
+body.dark {
+  background-color: #0c192c;
+  ::selection {
+    background-color: #d6c7ff;
+    color: black;
+  }
+  ::-moz-selection {
+    background-color: #d6c7ff;
+    color: black;
+  }
+  a {
+    color: rgb(246, 246, 246);
+    &:hover {
+      color: #d6c7ff;
+    }
+  }
+  h1 {
+    color: rgb(246, 246, 246);
+    span {
+      background: linear-gradient(
+        to right,
+        #fc72ff,
+        #8f68ff,
+        #487bff,
+        #8f68ff,
+        #fc72ff
+      );
+      background-size: 200%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: animate-gradient 3s linear infinite;
+    }
+  }
+  .get-started-btn {
+    background-color: #5e3fb8;
+    transition: 0.5s;
+    &:hover {
+      background-color: #8f68ff;
+      color: rgb(246, 246, 246);
+    }
+  }
+
+  .bubbles span {
+    background-color: #4fc3dc;
+    box-shadow: 0 0 0 1px #4fc3dc44, 0 0 50px #4fc3dc, 0 0 100px #4fc3dc;
+
+    &:nth-child(even) {
+      background-color: #ff2d75;
+      box-shadow: 0 0 0 1px #ff2d7544, 0 0 50px #ff2d75, 0 0 100px #ff2d75;
+    }
+  }
+
+  svg {
+    fill: rgb(246, 246, 246);
   }
 }

@@ -1,4 +1,5 @@
 import Logo from "../assets/images/logo.svg";
+import ToggleButton from "./ToggleButton";
 
 const Header = () => {
   return (
@@ -51,11 +52,14 @@ const Header = () => {
           </li>
         </ul>
 
+        {/* toggle button */}
+        <ToggleButton />
+
         {/* button */}
         <button>
           <a
             href="#"
-            className="p-3 px-6 font-medium text-white bg-Bright-Red rounded-full baseline hover:bg-Bright-Red-Sup-Light transition-colors duration-300 text-bold hidden md:block"
+            className="get-started-btn p-3 px-6 font-medium text-white bg-Bright-Red rounded-full baseline hover:bg-Bright-Red-Sup-Light transition-colors duration-300 text-bold hidden md:block"
           >
             Get Started
           </a>
