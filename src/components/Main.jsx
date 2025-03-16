@@ -61,7 +61,7 @@ const Main = () => {
           />
         </div>
       </main>
-      <div className="bubbles absolute flex overflow-hidden gap-1 flex-wrap bottom-0 w-[100vw] h-[100vh]">
+      <div className="bubbles pointer-events-none absolute flex overflow-hidden gap-1 flex-wrap bottom-0 w-[100vw] h-[100vh]">
         {bubbles}
       </div>
     </>
