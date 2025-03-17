@@ -1,22 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  /* set font family */
   --font-be-vietnam-pro: "Be Vietnam Pro", sans-serif;
-
   /* ## Colors */
 
   /* ### Primary */
   --color-Bright-Red: hsl(12, 88%, 59%);
   --color-Dark-Blue: hsl(228, 39%, 23%);
   --color-Bright-Red-Sup-Light: hsl(12, 88%, 69%);
+  --color-purple: #5e3fb8;
 
   /* ### Neutral */
   --color-Dark-Grayish-Blue: hsl(227, 12%, 61%);
   --color-Very-Dark-Blue: hsl(233, 12%, 13%);
   --color-Very-Pale-Red: hsl(13, 100%, 96%);
   --color-Very-Light-Gray: hsl(0, 0%, 98%);
-  --color-heading: hsl(46, 16%, 21%);
 
   /* set the animation */
   --animate-move: move 10s linear infinite;
@@ -25,7 +23,7 @@
 /* animate the bubbles */
 .bubbles span {
   pointer-events: none;
-  animation-duration: calc(120s / var(--i));
+  animation-duration: calc(500s / var(--i));
   box-shadow: 0 0 0 1px var(--color-Bright-Red),
     0 0 50px var(--color-Bright-Red-Sup-Light),
     0 0 100px var(--color-Bright-Red-Sup-Light);
@@ -35,18 +33,16 @@
   }
 }
 
-.get-started-btn {
-  transition: all 0.3s ease-out;
-}
-
 @keyframes move {
   from {
-    transform: translateY(100vh) scale(0);
+    transform: translateY(100vh) scale(0.5);
   }
   to {
-    transform: translateY(-10vh) scale(1);
+    transform: translateY(var(--height)) scale(1);
   }
 }
+
+/* the background images will be added here */
 
 /* change the highlighting color */
 ::selection {
@@ -59,27 +55,27 @@
   color: var(--color-heading);
 }
 
-/* create a  gradient background */
-h1 span {
-  color: transparent;
-  background: linear-gradient(
-    to right,
-    #d6c7ff,
-    #ab8bff,
-    #d6c7ff,
-    #ab8bff,
-    #d6c7ff
-  );
-  background-size: 200%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: animate-gradient 3s linear infinite;
+/* mobile nav animation */
+#menu {
+  animation: show-nav 1s ease 1 forwards;
+  &.fade-nav {
+    animation: fade-nav 1s ease 1 forwards;
+  }
 }
 
-@keyframes animate-gradient {
+@keyframes show-nav {
+  from {
+    transform: translateX(100%);
+  }
+
   to {
-    background-position: 200%;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes fade-nav {
+  to {
+    transform: translateX(105%);
   }
 }
 
@@ -91,36 +87,33 @@ body.dark {
     background-color: #d6c7ff;
     color: black;
   }
+
   ::-moz-selection {
     background-color: #d6c7ff;
     color: black;
   }
+
   a {
     color: rgb(246, 246, 246);
     &:hover {
       color: #d6c7ff;
     }
   }
-  h1 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
     color: rgb(246, 246, 246);
-    span {
-      background: linear-gradient(
-        to right,
-        #fc72ff,
-        #8f68ff,
-        #487bff,
-        #8f68ff,
-        #fc72ff
-      );
-      background-size: 200%;
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: animate-gradient 3s linear infinite;
-    }
   }
-  .get-started-btn {
+
+  p {
+    color: #d6c7ff;
+  }
+  .dark-btn {
     background-color: #5e3fb8;
+    transition: 0.5s;
     &:hover {
       background-color: #8f68ff;
       color: #f6f6f6;
@@ -137,27 +130,68 @@ body.dark {
     }
   }
 
-  .mood svg {
+  svg {
     fill: rgb(246, 246, 246);
-  }
-}
-
-button.mood svg {
-  animation: rotation 1s ease 1 forwards;
-}
-
-@keyframes rotation {
-  to {
     transform: rotate(-360deg);
+    &:hover {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .features .heading-container {
+      background-color: transparent;
+    }
+  }
+
+  .testimonials li {
+    background-color: rgb(6, 6, 25);
+  }
+
+  .cta {
+    background-color: #5e3fb8;
+
+    button a {
+      color: #5e3fb8;
+    }
+  }
+
+  footer {
+    background-color: rgb(6, 6, 25);
+  }
+
+  #menu {
+    background-color: rgb(6, 6, 25);
+  }
+
+  .hamburger span {
+    background-color: #f6f6f6;
   }
 }
 
-button.mood:hover svg {
-  animation: rotation-hover 1s ease 1 forwards;
+/* hamburger menu */
+.hamburger {
+  transition: all 0.25s;
+  span {
+    transition: all 0.5s;
+  }
 }
+.hamburger-bottom {
+  transform: translateY(14px);
+}
+.hamburger.open {
+  transform: rotate(90deg);
+  transform: translateY(0px);
 
-@keyframes rotation-hover {
-  to {
-    transform: rotate(360deg);
+  .hamburger-top {
+    transform: rotate(45deg) translateY(6px) translate(6px);
+  }
+
+  .hamburger-middle {
+    display: none;
+  }
+
+  .hamburger-bottom {
+    transform: rotate(-45deg) translateY(6px) translate(-6px);
   }
 }

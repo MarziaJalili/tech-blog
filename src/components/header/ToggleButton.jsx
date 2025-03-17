@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const ToggleButton = ({ darkMood, setDarkMood }) => {
   // toggle the dark mood on and off...
   const path = darkMood
@@ -18,8 +16,8 @@ const ToggleButton = ({ darkMood, setDarkMood }) => {
       onClick={changeMood}
     >
       <svg
-        width="50"
         height="27"
+        width="50"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
       >
